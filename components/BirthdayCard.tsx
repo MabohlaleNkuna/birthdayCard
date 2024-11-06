@@ -4,41 +4,40 @@ import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity, ScrollView 
 const BirthdayCard = () => {
   const [readerName, setReaderName] = useState('');
   const [creatorMessage, setCreatorMessage] = useState('');
-  const [readerMessage, setReaderMessage] = useState('');
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.card}>
         <Image source={require('../assets/birthday-decoration.jpg')} style={styles.image} />
-        
-        {/* Creator's Input */}
+       
         <TextInput
           style={styles.input}
-          placeholder="reader Name"
+          placeholder="Reader's Name"
           value={readerName}
           onChangeText={setReaderName}
         />
         <TextInput
-          style={styles.input}
-          placeholder=" Message"
+          style={[styles.input, styles.messageInput]}
+          placeholder="Birthday Message"
           value={creatorMessage}
           onChangeText={setCreatorMessage}
           multiline
         />
-        
-        {/* Preview for the Birthday Card */}
+      
         <Text style={styles.previewText}>
           🎉 Happy Birthday, {readerName}! 🎉
         </Text>
         <Text style={styles.messageText}>{creatorMessage}</Text>
         
-       
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => {
-        setReaderName('');
-        setCreatorMessage('');
-        setReaderMessage('');
-      }}>
+      
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={() => {
+          setReaderName('');
+          setCreatorMessage('');
+        }}
+      >
         <Text style={styles.buttonText}>Reset</Text>
       </TouchableOpacity>
     </ScrollView>
@@ -60,10 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 20,
     shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
     elevation: 5,
@@ -82,6 +78,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     width: '100%',
     marginBottom: 15,
+  },
+  messageInput: {
+    height: 60,
   },
   previewText: {
     fontSize: 24,
