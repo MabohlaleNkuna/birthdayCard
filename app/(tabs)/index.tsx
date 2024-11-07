@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   birthdayCardContainer: {
-    margin: 20, // Add some margin to the BirthdayCard
+  
     padding: 10,
+    flex:1,
   },
 });

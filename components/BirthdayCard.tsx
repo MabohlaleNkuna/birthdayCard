@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity, StatusBar, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const BirthdayCard = () => {
@@ -8,6 +8,9 @@ const BirthdayCard = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+     
+      <StatusBar barStyle="light-content" backgroundColor="#000000" />
+      
       <LinearGradient colors={['#8A2BE2', '#FF69B4', '#FFB6C1']} start={[0, 0]} end={[1, 1]} style={styles.card}>
         <Image source={require('../assets/birthday-decoration.jpg')} style={styles.image} />
        
@@ -52,12 +55,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     backgroundColor: '#f7f7f7',
+    
   },
   card: {
     width: '100%',
-    maxWidth: 400,
     borderRadius: 15,
-    padding: 20,
+    padding: 60,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
@@ -66,9 +69,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
     marginBottom: 20,
+
   },
   input: {
     height: 40,
@@ -76,7 +80,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
-    width: '100%',
+    width: '90%', 
     marginBottom: 15,
     backgroundColor: '#fff',
   },
@@ -102,6 +106,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#007bff',
     padding: 10,
     borderRadius: 5,
+    marginTop: 20,
   },
   buttonText: {
     color: '#fff',
