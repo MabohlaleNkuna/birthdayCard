@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const BirthdayCard = () => {
   const [readerName, setReaderName] = useState('');
@@ -7,7 +8,7 @@ const BirthdayCard = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.card}>
+      <LinearGradient colors={['#8A2BE2', '#FF69B4', '#FFB6C1']} start={[0, 0]} end={[1, 1]} style={styles.card}>
         <Image source={require('../assets/birthday-decoration.jpg')} style={styles.image} />
        
         <TextInput
@@ -25,11 +26,11 @@ const BirthdayCard = () => {
         />
       
         <Text style={styles.previewText}>
-          🎉 Happy Birthday, {readerName}! 🎉
+          🎉🎈 Happy Birthday, {readerName}! 🎈🎉
         </Text>
         <Text style={styles.messageText}>{creatorMessage}</Text>
         
-      </View>
+      </LinearGradient>
       
       <TouchableOpacity 
         style={styles.button} 
@@ -55,8 +56,7 @@ const styles = StyleSheet.create({
   card: {
     width: '100%',
     maxWidth: 400,
-    backgroundColor: '#fff',
-    borderRadius: 10,
+    borderRadius: 15,
     padding: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     width: '100%',
     marginBottom: 15,
+    backgroundColor: '#fff',
   },
   messageInput: {
     height: 60,
@@ -87,11 +88,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 10,
     textAlign: 'center',
+    color: '#fff',
+    fontFamily: 'cursive',
   },
   messageText: {
     fontSize: 16,
     marginTop: 5,
     textAlign: 'center',
+    color: '#fff',
     marginBottom: 20,
   },
   button: {
